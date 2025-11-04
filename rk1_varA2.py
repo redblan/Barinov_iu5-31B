@@ -5,8 +5,8 @@ class Student:
     def __init__(self, id, last_name, score, class_id):
         self.id = id
         self.last_name = last_name
-        self.score = score  # количественный признак (баллы)
-        self.class_id = class_id  # для связи один-ко-многим
+        self.score = score
+        self.class_id = class_id
 
 
 class SchoolClass:
@@ -102,7 +102,6 @@ def main():
 
     for c in classes:
         if 'класс' in c.name.lower():
-            # Фильтруем школьников для данного класса из связи многие-ко-многим
             c_students = [s_name for s_name, s_score, class_name in many_to_many
                           if class_name == c.name]
             res_13[c.name] = c_students
@@ -113,4 +112,5 @@ def main():
 
 
 if __name__ == '__main__':
+
     main()
